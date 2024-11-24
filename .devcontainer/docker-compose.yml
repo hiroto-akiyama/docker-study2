@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app: # コンテナごとにdocker-compose内名前を付ける
+    build: . # Dockerfileのパスを指定
+    container_name: flask-app # コンテナの名前を付ける
+    # ttyとstdin_openはコンテナを起動させておくための設定
+    tty: true
+    stdin_open: true
+    # WSLとコンテナのフォルダの共有設定
+    volumes:
+      - ../:/workspace:cached
